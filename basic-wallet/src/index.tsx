@@ -1,32 +1,50 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { xdai, dai, eth } from '@burner-wallet/assets';
 import BurnerCore from '@burner-wallet/core';
 import { InjectedSigner, LocalSigner } from '@burner-wallet/core/signers';
-import { InfuraGateway, InjectedGateway, XDaiGateway, } from '@burner-wallet/core/gateways';
+import { InfuraGateway } from '@burner-wallet/core/gateways';
 import Exchange, { Uniswap, XDaiBridge } from '@burner-wallet/exchange';
 import ModernUI from '@burner-wallet/modern-ui';
-import MyPlugin from 'my-plugin';
+import { FuelGateway, FuelAsset } from 'fuel-burner-plugin';
+import RedditPlugin from 'reddit-plugin';
+
+const moon = new FuelAsset({
+  id: 'moon', 
+  name: 'Moons', 
+  network: '4', 
+  address: '0xdf82c9014f127243ce1305dfe54151647d74b27a', 
+  // icon: fakedai, 
+});
+
+const brick = new FuelAsset({
+  id: 'brick', 
+  name: 'Bricks', 
+  network: '4', 
+  address: '0xe0d8d7b8273de14e628d2f2a4a10f719f898450a', 
+  // icon: fakedai, 
+});
 
 const core = new BurnerCore({
-  signers: [new InjectedSigner(), new LocalSigner()],
+  signers: [new LocalSigner()],
   gateways: [
-    new InjectedGateway(),
+    new FuelGateway(),
     new InfuraGateway(process.env.REACT_APP_INFURA_KEY),
-    new XDaiGateway(),
   ],
-  assets: [xdai, dai, eth],
+  assets: [moon, brick],
 });
 
-const exchange = new Exchange({
-  pairs: [new XDaiBridge(), new Uniswap('dai')],
-});
+// const exchange = new Exchange({
+//   pairs: [new XDaiBridge(), new Uniswap('dai')],
+// });
 
 const BurnerWallet = () =>
   <ModernUI
     title="Basic Wallet"
     core={core}
-    plugins={[exchange, new MyPlugin()]}
+    plugins={[
+      // exchange,
+      new RedditPlugin(),
+    ]}
   />
 
 

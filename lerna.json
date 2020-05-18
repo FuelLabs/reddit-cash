@@ -2,7 +2,7 @@
   "packages": [
     "basic-wallet",
     "local-wallet",
-    "my-plugin"
+    "reddit-plugin"
   ],
   "npmClient": "yarn",
   "useWorkspaces": true,
