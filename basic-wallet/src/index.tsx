@@ -39,7 +39,7 @@ const core = new BurnerCore({
 
 const BurnerWallet = () =>
   <ModernUI
-    title="Basic Wallet"
+    title="Reddit Wallet"
     core={core}
     plugins={[
       // exchange,
