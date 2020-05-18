@@ -23,7 +23,7 @@ export default class RedditPlugin implements Plugin {
 
   async getFunnelAddress(address: string) {
     if (!funnelAddressCache[address]) {
-      const response = await fetch(`http://burnerfactory.com:8080/funnel/${address}`);
+      const response = await fetch(`https://reddit-relay.burnerfactory.com/funnel/${address}`);
       const { funnel } = await response.json();
       funnelAddressCache[address] = funnel;
     }
