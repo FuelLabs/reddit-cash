@@ -7,8 +7,9 @@ import Exchange, { Uniswap, XDaiBridge } from '@burner-wallet/exchange';
 import ModernUI from '@burner-wallet/modern-ui';
 import { FuelGateway, FuelAsset } from 'fuel-burner-plugin';
 import RedditPlugin from 'reddit-plugin';
-import brickIcon from './brick.png';
-import moonIcon from './moon.png';
+import redditLogo from './reddit-alien.svg';
+import brickIcon from './brick-fuel.png';
+import moonIcon from './moon-fuel.png';
 
 const moon = new FuelAsset({
   id: 'moon', 
@@ -51,6 +52,7 @@ const BurnerWallet = () =>
       background: '#cee3f8',
       accentColor: '#369',
       paperBackground: '#EFF7FF',
+      logo: redditLogo,
     }}
   />
 
