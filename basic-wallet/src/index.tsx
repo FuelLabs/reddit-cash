@@ -47,6 +47,11 @@ const BurnerWallet = () =>
       // exchange,
       new RedditPlugin(),
     ]}
+    theme={{
+      background: '#cee3f8',
+      accentColor: '#369',
+      paperBackground: '#EFF7FF',
+    }}
   />
 
 
