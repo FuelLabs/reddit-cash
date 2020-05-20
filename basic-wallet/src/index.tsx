@@ -15,7 +15,7 @@ const moon = new FuelAsset({
   id: 'moon', 
   name: 'Moons', 
   network: '4', 
-  address: '0xdf82c9014f127243ce1305dfe54151647d74b27a', 
+  address: '0x357010f7ea7ae2e4b39f40724668a63485197391', 
   icon: moonIcon, 
 });
 
@@ -23,7 +23,7 @@ const brick = new FuelAsset({
   id: 'brick', 
   name: 'Bricks', 
   network: '4', 
-  address: '0xe0d8d7b8273de14e628d2f2a4a10f719f898450a', 
+  address: '0x9824c7a9155e1cbff0a25741341b6f0888a4a391', 
   icon: brickIcon, 
 });
 
