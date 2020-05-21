@@ -3,19 +3,19 @@ import ReactDOM from 'react-dom';
 import BurnerCore from '@burner-wallet/core';
 import { InjectedSigner, LocalSigner } from '@burner-wallet/core/signers';
 import { InfuraGateway } from '@burner-wallet/core/gateways';
-import Exchange, { Uniswap, XDaiBridge } from '@burner-wallet/exchange';
+import Exchange from '@burner-wallet/exchange';
 import ModernUI from '@burner-wallet/modern-ui';
-import { FuelGateway, FuelAsset } from 'fuel-burner-plugin';
+import { FuelGateway, FuelAsset, FuelPair } from 'fuel-burner-plugin';
 import RedditPlugin from 'reddit-plugin';
 import redditLogo from './reddit-alien.svg';
-import brickIcon from './brick-fuel.png';
-import moonIcon from './moon-fuel.png';
+import brickIcon from './brick-fuel-trans.png';
+import moonIcon from './moon-fuel-trans.png';
 
 const moon = new FuelAsset({
   id: 'moon', 
   name: 'Moons', 
   network: '4', 
-  address: '0x357010f7ea7ae2e4b39f40724668a63485197391', 
+  address: '0xf4130d9b5a3b9cf81ab1e4f4bbd9a6ca6c28de17', 
   icon: moonIcon, 
 });
 
@@ -23,7 +23,7 @@ const brick = new FuelAsset({
   id: 'brick', 
   name: 'Bricks', 
   network: '4', 
-  address: '0x9824c7a9155e1cbff0a25741341b6f0888a4a391', 
+  address: '0x6292f268e6d2e9952d759e6fd7571024bb04da3f', 
   icon: brickIcon, 
 });
 
@@ -36,23 +36,20 @@ const core = new BurnerCore({
   assets: [moon, brick],
 });
 
-// const exchange = new Exchange({
-//   pairs: [new XDaiBridge(), new Uniswap('dai')],
-// });
-
 const BurnerWallet = () =>
   <ModernUI
-    title="Reddit Wallet"
+    title="Reddit Cash"
     core={core}
     plugins={[
-      // exchange,
       new RedditPlugin(),
+      new Exchange([new FuelPair('moon', 'brick')]),
     ]}
     theme={{
       background: '#cee3f8',
       accentColor: '#369',
       paperBackground: '#EFF7FF',
       logo: redditLogo,
+      balanceStyle: 'stack',
     }}
   />
 
