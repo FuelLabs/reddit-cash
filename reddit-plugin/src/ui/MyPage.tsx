@@ -3,19 +3,11 @@ import { PluginPageContext } from '@burner-wallet/types';
 import styled from 'styled-components';
 import RedditPlugin from '../RedditPlugin';
 import Clipboard from './Clipboard';
+import screen1 from '../../img/screen1.png';
+import screen2 from '../../img/screen2.png';
 
-const Instructions = styled.div``;
-
-const QRContainer = styled.div`
-  flex: 1;
-  justify-content: center;
-  display: flex;
-  align-items: center;
-
-  & svg {
-    height: 50%;
-    width: 50%;
-  }
+const Instructions = styled.p`
+  margin: 12px 0;
 `;
 
 const CopyContainer = styled.div`
@@ -33,6 +25,15 @@ const AddressBar = styled.div`
   text-overflow: ellipsis;
 `;
 
+const Img1 = styled.img`
+  width: 100%;
+  margin: 12px 0;
+`;
+const Img2 = styled.img`
+  width: 100%;
+  margin: 12px 0;
+`;
+
 const MyPage: React.FC<PluginPageContext<{}, RedditPlugin>> = ({ BurnerComponents, plugin, defaultAccount }) => {
   const [funnel, setFunnel] = useState<string | null>(null);
 
@@ -40,7 +41,7 @@ const MyPage: React.FC<PluginPageContext<{}, RedditPlugin>> = ({ BurnerComponent
     plugin.getFunnelAddress(defaultAccount).then((_funnel: string) => setFunnel(_funnel));
   }, [defaultAccount]);
 
-  const { Page, QRCode, Button } = BurnerComponents;
+  const { Page, Button } = BurnerComponents;
   return (
     <Page title="Deposit">
       {funnel ? (
@@ -48,13 +49,10 @@ const MyPage: React.FC<PluginPageContext<{}, RedditPlugin>> = ({ BurnerComponent
           <Instructions>
             Deposit your MOON & BRICK tokens from the Reddit app or any other wallet!
           </Instructions>
-          <Instructions>
-            Send your tokens to the following address to deposit tokens into the Burner Wallet.
-          </Instructions>
 
-          <QRContainer>
-            <QRCode value={funnel} renderAs="svg" />
-          </QRContainer>
+          <Instructions>
+            Copy the following deposit address:
+          </Instructions>
 
           <CopyContainer>
             <AddressBar>{funnel}</AddressBar>
@@ -64,6 +62,25 @@ const MyPage: React.FC<PluginPageContext<{}, RedditPlugin>> = ({ BurnerComponent
               )}
             </Clipboard>
           </CopyContainer>
+
+          <Instructions>
+            Open the Reddit app. Navigate to the Vault and press the Send button.
+          </Instructions>
+
+          <Img1 src={screen1} />
+
+          <Instructions>
+            Paste the deposit address and send tokens to deposit into Reddit Cash.
+          </Instructions>
+
+          <Img2 src={screen2} />
+
+          <Instructions>
+            Token deposits can take up to 2 minutes.
+          </Instructions>
+          <Instructions>
+            Warning: this is a prototype! Withdrawing tokens back to the main chain is not yet available.
+          </Instructions>
         </Fragment>
       ) : (
         <div>Loading...</div>
