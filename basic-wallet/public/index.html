@@ -11,7 +11,7 @@
 body {
   background: #cee3f8;
 }
-.sc-fzqNqU.kOWqlI:after {
+.kOWqlI:after, .kikdAh:after {
     content: ' & Fuel';
 }
 #loader {
@@ -20,17 +20,53 @@ body {
   font-size: 36px;
   margin-top: 100px;
 }
-.dQUjyN, .gTwrUf {
+.dQUjyN, .gTwrUf, .eoGDzK {
   display: none !important;
 }
 .sc-fznAgC.lbstDl:last-child {
   opacity: 0.5;
+}
+.cUBPUb:after, .eNQuho:after {
+    content: 'Demonstration wallet, this site is not affiliated with Reddit Inc.';
+    display: block;
+    margin-top: 10px;
+    font-size: 12px;
+    font-style: italic;
+}
+
+.lds-dual-ring {
+  margin-top: 24px;
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid #fff;
+  border-color: #fff transparent #fff transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
     </style>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <div id="loader">Reddit Cash</div>
+    <div id="loader">
+      <div>Reddit Cash</div>
+      <div class="lds-dual-ring"></div>
+    </div>
   </body>
 </html>
