@@ -7313,9 +7313,9 @@ fuel-burner-plugin@^0.1.6:
     styled-components "^5.1.0"
 
 fuel-core@^0.1.6:
-  version "0.1.7"
-  resolved "https://registry.yarnpkg.com/fuel-core/-/fuel-core-0.1.7.tgz#7b429ead5a0decb4e9130f55c538d197548bbd3d"
-  integrity sha512-Nifnb0RadqpziLyRdQg0OaUTrPLm/UWqvZRINQHdkVY4Xuk2xtKhLAYI6zwaja0avZUI5gu/E+mj4WBS6nSkwg==
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/fuel-core/-/fuel-core-0.1.8.tgz#9b8b935655e0bf8669a1a593f393aecedcc397db"
+  integrity sha512-gS0AvryGWDvLEmOPJ7SXPdl4+5goftH8kvbLoolkzFWqaABCbY99zI7P1uJcQb/8B58D276Q8njVayY5wtcfOQ==
   dependencies:
     axios "^0.19.1"
     bn.js "^5.1.1"

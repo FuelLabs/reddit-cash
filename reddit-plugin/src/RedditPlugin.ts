@@ -1,6 +1,6 @@
 import { BurnerPluginContext, Plugin, Actions } from '@burner-wallet/types';
 import MyPage from './ui/MyPage';
-import MyElement from './ui/MyElement';
+import Settings from './ui/Settings';
 
 interface PluginActionContext {
   actions: Actions;
@@ -18,7 +18,7 @@ export default class RedditPlugin implements Plugin {
     pluginContext.addButton('apps', 'Deposit', '/deposit', {
       description: 'Deposit your tokens from Reddit',
     });
-    // pluginContext.addElement('home-middle', MyElement);
+    pluginContext.addElement('advanced', Settings);
   }
 
   async getFunnelAddress(address: string) {
@@ -29,5 +29,17 @@ export default class RedditPlugin implements Plugin {
     }
 
     return funnelAddressCache[address];
+  }
+
+  async returnFunds(recipient: string) {
+    const response = await fetch('https://release.fuel.sh', {
+      method: 'POST',
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ recipient })
+    });
+    return response.json();
   }
 }
