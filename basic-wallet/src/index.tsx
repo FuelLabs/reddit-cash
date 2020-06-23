@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import BurnerCore from '@burner-wallet/core';
 import { InjectedSigner, LocalSigner } from '@burner-wallet/core/signers';
-import { InfuraGateway } from '@burner-wallet/core/gateways';
+import { RivetGateway } from '@burner-wallet/core/gateways';
 import Exchange from '@burner-wallet/exchange';
 import ModernUI from '@burner-wallet/modern-ui';
 import { FuelGateway, FuelAsset, FuelPair } from 'fuel-burner-plugin';
@@ -31,7 +31,7 @@ const core = new BurnerCore({
   signers: [new LocalSigner()],
   gateways: [
     new FuelGateway(),
-    new InfuraGateway(process.env.REACT_APP_INFURA_KEY),
+    new RivetGateway(process.env.REACT_APP_RIVET_KEY),
   ],
   assets: [moon, brick],
 });
