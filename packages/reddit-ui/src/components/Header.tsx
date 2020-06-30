@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import _styled, { ThemedStyledInterface } from 'styled-components';
 import { Route } from 'react-router-dom';
-import { withBurner, BurnerContext } from '@burner-wallet/ui-core';
+import { useBurner } from '@burner-wallet/ui-core';
 import { SCAN_QR_DATAURI } from '../lib';
 import { BurnerTheme } from '../Template';
+import Drawer from './Drawer';
 
 const styled = (_styled as ThemedStyledInterface<BurnerTheme>);
 
@@ -59,32 +60,45 @@ const MiniQRButton = styled.button`
   outline: none;
 `;
 
-interface HeaderProps extends BurnerContext {
+const UserButton = styled.button`
+  height: 40px;
+  width: 40px;
+`;
+
+interface HeaderProps {
   title?: string;
 }
 
-const Header: React.FC<HeaderProps> = ({ defaultAccount, title, actions }) => (
-  <HeaderElement>
-    <TitleContainer>
-      <Title>{title || 'Burner Wallet'}</Title>
-      {title && title !== 'Burner Wallet' && (
-        <Subtitle>Powered by Burner Wallet</Subtitle>
-      )}
-    </TitleContainer>
+const Header: React.FC<HeaderProps> = ({ title }) => {
+  const { defaultAccount, actions } = useBurner();
+  const [isOpen, setOpen] = useState(false);
 
-    <RightSide>
-      <HeaderAccount onClick={() => actions.navigateTo('/receive')}>
-        {defaultAccount.substr(2, 8)}
-      </HeaderAccount>
+  return (
+    <HeaderElement>
+      <Drawer isOpen={isOpen} setOpen={setOpen} />
 
-      <Route exact path="/">
-        {({ match }) => match ? null : (
-          <MiniQRButton onClick={actions.openDefaultQRScanner} />
+      <UserButton onClick={() => setOpen(true)} />
+
+      <TitleContainer>
+        <Title>{title || 'Burner Wallet'}</Title>
+        {title && title !== 'Burner Wallet' && (
+          <Subtitle>Powered by Burner Wallet</Subtitle>
         )}
-      </Route>
-    </RightSide>
-  </HeaderElement>
-);
+      </TitleContainer>
 
+      <RightSide>
+        <HeaderAccount onClick={() => actions.navigateTo('/receive')}>
+          {defaultAccount.substr(2, 8)}
+        </HeaderAccount>
 
-export default withBurner(Header);
+        <Route exact path="/">
+          {({ match }) => match ? null : (
+            <MiniQRButton onClick={actions.openDefaultQRScanner} />
+          )}
+        </Route>
+      </RightSide>
+    </HeaderElement>
+  );
+};
+
+export default Header;

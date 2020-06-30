@@ -33,6 +33,11 @@ const Container = styled.div`
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  box-sizing: content-box;
+
+  @media (min-width: 600px) {
+    padding-left: 200px;
+  }
 `;
 
 const makeTheme = (theme: any) => {

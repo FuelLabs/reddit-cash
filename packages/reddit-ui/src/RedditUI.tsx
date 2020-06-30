@@ -2,6 +2,7 @@ import React from 'react';
 import BurnerUICore, { Page } from '@burner-wallet/ui-core';
 
 import burnerComponents from './components/burner-components';
+import Drawer from './components/Drawer';
 import Header from './components/Header';
 import Loading from './components/Loading';
 import Scanner from './components/Scanner';

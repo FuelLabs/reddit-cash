@@ -11,7 +11,7 @@ const Overlay = styled.div`
   left: 0;
   right: 0;
   background: rgba(139, 139, 144, 0.7);
-  z-index: 100;
+  z-index: 1400;
   padding: 20px;
   display: flex;
   flex-direction: column;
