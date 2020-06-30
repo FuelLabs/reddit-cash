@@ -1,0 +1,36 @@
+{
+  "name": "reddit-ui",
+  "private": true,
+  "version": "1.0.9",
+  "license": "MIT",
+  "main": "dist/RedditUI.js",
+  "types": "dist/RedditUI.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "start-local": "tsc -w",
+    "start-basic": "tsc -w"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.4.4",
+    "@babel/preset-typescript": "^7.3.3"
+  },
+  "dependencies": {
+    "@burner-wallet/types": "^1.0.2",
+    "@burner-wallet/ui-core": "^1.0.2",
+    "@types/clipboard": "^2.0.1",
+    "@types/color": "^3.0.0",
+    "@types/ethereumjs-util": "^5.2.0",
+    "@types/qrcode.react": "^0.8.2",
+    "@types/react": "*",
+    "@types/react-qr-reader": "^2.1.2",
+    "@types/react-router-dom": "^4.3.4",
+    "@types/styled-components": "4.1.8",
+    "clipboard": "^2.0.4",
+    "color": "^3.1.2",
+    "ethereumjs-util": "^6.1.0",
+    "qrcode.react": "^0.9.3",
+    "react-qr-reader": "^2.2.1",
+    "styled-components": "^5.0.1"
+  }
+}

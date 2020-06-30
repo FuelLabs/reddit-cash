@@ -25,5 +25,9 @@
   },
   "dependencies": {
     "typescript": "^3.6.3"
+  },
+  "resolutions": {
+    "ethereumjs-wallet": "1.0.0",
+    "web3": "1.2.9"
   }
 }

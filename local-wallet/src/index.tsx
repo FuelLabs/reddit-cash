@@ -4,7 +4,7 @@ import { NativeAsset, ERC20Asset } from '@burner-wallet/assets';
 import BurnerCore from '@burner-wallet/core';
 import { InjectedSigner, LocalSigner } from '@burner-wallet/core/signers';
 import { HTTPGateway } from '@burner-wallet/core/gateways';
-import ModernUI from '@burner-wallet/modern-ui';
+import RedditUI from 'reddit-ui';
 import MyPlugin from 'my-plugin';
 
 const core = new BurnerCore({
@@ -32,7 +32,7 @@ const core = new BurnerCore({
 });
 
 const BurnerWallet = () =>
-  <ModernUI
+  <RedditUI
     title="Local Wallet"
     core={core}
     plugins={[new MyPlugin()]}

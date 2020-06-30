@@ -4,7 +4,7 @@ import BurnerCore from '@burner-wallet/core';
 import { InjectedSigner, LocalSigner } from '@burner-wallet/core/signers';
 import { RivetGateway } from '@burner-wallet/core/gateways';
 import Exchange from '@burner-wallet/exchange';
-import ModernUI from '@burner-wallet/modern-ui';
+import RedditUI from 'reddit-ui';
 import { FuelGateway, FuelAsset, FuelPair } from 'fuel-burner-plugin';
 import RedditPlugin from 'reddit-plugin';
 import redditLogo from './reddit-alien.svg';
@@ -31,13 +31,13 @@ const core = new BurnerCore({
   signers: [new LocalSigner()],
   gateways: [
     new FuelGateway(),
-    new RivetGateway(process.env.REACT_APP_RIVET_KEY),
+    new InfuraGateway(process.env.REACT_APP_INFURA_KEY),
   ],
   assets: [moon, brick],
 });
 
 const BurnerWallet = () =>
-  <ModernUI
+  <RedditUI
     title="Reddit Cash"
     core={core}
     plugins={[
