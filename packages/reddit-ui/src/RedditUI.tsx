@@ -18,6 +18,7 @@ import PKPage from './pages/PKPage';
 import ReceiptPage from './pages/ReceiptPage';
 import ReceivePage from './pages/ReceivePage';
 import SendPage from './pages/SendPage';
+import VaultPage from './pages/VaultPage';
 
 
 export default class RedditUI extends BurnerUICore {
@@ -32,6 +33,7 @@ export default class RedditUI extends BurnerUICore {
   getPages(): Page[] {
     return [
       { path: '/', component: HomePage },
+      { path: '/vault', component: VaultPage },
       { path: '/activity', component: ActivityPage },
       { path: '/pk', component: PKPage },
       { path: '/receive', component: ReceivePage },
