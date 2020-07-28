@@ -10,23 +10,26 @@ const styled = (_styled as ThemedStyledInterface<BurnerTheme>);
 
 const HeaderElement = styled.header`
   display: flex;
-  height: 64px;
+  height: 42px;
   align-items: center;
   justify-content: space-between;
-  margin: 0 ${props => props.theme.pageMargin};
+  background: white;
+  position: fixed;
+  box-shadow: 0px 1px 4px #949494;
+  z-index: 1;
+  right: 0;
+  left: 0;
+  top: 0;
+  padding: 8px;
+
+  @media (min-width: 600px) {
+    left: 200px;
+  }
 `;
 
-const TitleContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-
-  ${props => props.theme.logo && `
-    background-image: url(${props.theme.logo});
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: 4px center;
-    padding-left: 44px;
-  `}
+const SearchBar = styled.input`
+  flex: 1;
+  border: none;
 `;
 
 const Title = styled.h1`
@@ -38,9 +41,12 @@ const Subtitle = styled.div`
   font-size: 12px;
 `;
 
-const RightSide = styled.div`
-  display: flex;
-  align-items: center;
+const Coin = styled.div`
+  margin: 12px;
+  height: 12px;
+  width: 12px;
+  border-radius: 12px;
+  background: gold;
 `;
 
 const HeaderAccount = styled.div`
@@ -48,21 +54,10 @@ const HeaderAccount = styled.div`
   color: rgba(0, 0, 0, 0.7);
 `;
 
-const MiniQRButton = styled.button`
-  background: url("${SCAN_QR_DATAURI}");
-  background-size: contain;
-  background-size: 75%;
-  background-position: center;
-  background-repeat: no-repeat;
-  margin-left: 8px;
-  height: 40px;
-  width: 40px;
-  outline: none;
-`;
-
 const UserButton = styled.button`
-  height: 40px;
-  width: 40px;
+  height: 20px;
+  width: 20px;
+  border-radius: 20px;
 `;
 
 interface HeaderProps {
@@ -79,24 +74,9 @@ const Header: React.FC<HeaderProps> = ({ title }) => {
 
       <UserButton onClick={() => setOpen(true)} />
 
-      <TitleContainer>
-        <Title>{title || 'Burner Wallet'}</Title>
-        {title && title !== 'Burner Wallet' && (
-          <Subtitle>Powered by Burner Wallet</Subtitle>
-        )}
-      </TitleContainer>
+      <SearchBar placeholder="search" />
 
-      <RightSide>
-        <HeaderAccount onClick={() => actions.navigateTo('/receive')}>
-          {defaultAccount.substr(2, 8)}
-        </HeaderAccount>
-
-        <Route exact path="/">
-          {({ match }) => match ? null : (
-            <MiniQRButton onClick={actions.openDefaultQRScanner} />
-          )}
-        </Route>
-      </RightSide>
+      <Coin />
     </HeaderElement>
   );
 };

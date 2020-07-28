@@ -20,6 +20,11 @@ const Menu: React.FC<MenuProps> = ({ onClick }) => {
 
   return (
     <List style={{ width: '200px' }}>
+      <ListItem button component={Link} to="/" onClick={onClick}>
+        <ListItemIcon/>
+        <ListItemText primary="Home" />
+      </ListItem>
+
       <ListItem button>
         <ListItemIcon/>
         <ListItemText primary="My Profile" />

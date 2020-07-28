@@ -57,29 +57,7 @@ const { PluginElements, PluginButtons } = DataProviders;
 const HomePage: React.FC<BurnerContext> = ({ defaultAccount, actions, pluginData, t }) => {
   return (
     <PageContainer>
-      <PluginElements position='home-top' />
-
-      <HomeTabs pluginData={pluginData} />
-
-      <PluginElements position='home-middle' />
-
-      <ActivityHeader>
-        <SubHeading>{t('Recent activity')}</SubHeading>
-        <ViewAllButton to='/activity'>{t('View all')}</ViewAllButton>
-      </ActivityHeader>
-
-      <HistoryList account={defaultAccount} limit={3} navigateTo={actions.navigateTo} />
-
-
-      <PluginButtons position="apps" component={AppButton}>
-        <SubHeading line>{t('Apps')}</SubHeading>
-      </PluginButtons>
-
-      <AppButton title={t('Settings')} to="/advanced" />
-
-      <BottomActionsContainer>
-        <BottomActions actions={actions} />
-      </BottomActionsContainer>
+      Reddit Stuff
     </PageContainer>
   );
 };

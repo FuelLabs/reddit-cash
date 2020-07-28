@@ -34,6 +34,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   box-sizing: content-box;
+  margin-top: 32px;
 
   @media (min-width: 600px) {
     padding-left: 200px;

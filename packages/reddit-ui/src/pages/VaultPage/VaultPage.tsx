@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { useBurner, DataProviders } from '@burner-wallet/ui-core';
 import { Asset, AccountBalanceData, PluginElementContext } from '@burner-wallet/types';
@@ -87,6 +87,21 @@ const Page = styled.div`
   margin-top: -64px;
   display: flex;
   flex-direction: column;
+  z-index: 5;
+`;
+
+const Background = styled.div`
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #ededed;
+  z-index: 1;
+
+  @media (min-width: 600px) {
+    margin-left: 200px;
+  }
 `;
 
 const { PluginElements, PluginButtons, AccountBalance } = DataProviders;
@@ -94,47 +109,52 @@ const { PluginElements, PluginButtons, AccountBalance } = DataProviders;
 const VaultPage: React.FC = () => {
   const { assets, defaultAccount, actions, pluginData, t } = useBurner();
   return (
-    <Page>
-      <Header>
-        <Close to="/">X</Close>
-        <HeaderBar>
-          <ProfPic />
-          Vault
-          <Spacer />
-          <SendBTN to="/send" />
-        </HeaderBar>
-      </Header>
+    <Fragment>
+      <Background />
 
-      <Content>
-        <PluginElements position='home-top' />
+      <Page>
 
-        <Heading>Your Points</Heading>
+        <Header>
+          <Close to="/">X</Close>
+          <HeaderBar>
+            <ProfPic />
+            Vault
+            <Spacer />
+            <SendBTN to="/send" />
+          </HeaderBar>
+        </Header>
 
-        {assets.map((asset: Asset) => (
-          <AccountBalance
-            key={asset.id}
-            asset={asset.id}
-            account={defaultAccount}
-            render={(data: AccountBalanceData | null) => (
-              <Card>
-                <Balance>
-                  <div>{asset.name}</div>
-                  <div>{data && data.displayBalance}</div>
-                </Balance>
-              </Card>
-            )}
-          />
-        ))}
+        <Content>
+          <PluginElements position='home-top' />
 
-        <PluginElements position='home-middle' />
+          <Heading>Your Points</Heading>
 
-        <Heading>Latest Transactions</Heading>
+          {assets.map((asset: Asset) => (
+            <AccountBalance
+              key={asset.id}
+              asset={asset.id}
+              account={defaultAccount}
+              render={(data: AccountBalanceData | null) => (
+                <Card>
+                  <Balance>
+                    <div>{asset.name}</div>
+                    <div>{data && data.displayBalance}</div>
+                  </Balance>
+                </Card>
+              )}
+            />
+          ))}
 
-        <Card>
-          <HistoryList account={defaultAccount} limit={3} navigateTo={actions.navigateTo} />
-        </Card>
-      </Content>
-    </Page>
+          <PluginElements position='home-middle' />
+
+          <Heading>Latest Transactions</Heading>
+
+          <Card>
+            <HistoryList account={defaultAccount} limit={3} navigateTo={actions.navigateTo} />
+          </Card>
+        </Content>
+      </Page>
+    </Fragment>
   );
 };
 
