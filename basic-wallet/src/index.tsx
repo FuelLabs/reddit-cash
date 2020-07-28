@@ -21,12 +21,12 @@ const moon = new FuelAsset({
   icon: moonIcon, 
 });
 
-const xmoon = new ERC20Asset({
-  id: 'xmoon',
-  name: 'xMoon',
-  address: '0x1e16aa4Df73d29C029d94CeDa3e3114EC191E25A',
-  network: '100',
-});
+// const xmoon = new ERC20Asset({
+//   id: 'xmoon',
+//   name: 'xMoon',
+//   address: '0x1e16aa4Df73d29C029d94CeDa3e3114EC191E25A',
+//   network: '100',
+// });
 
 // const brick = new FuelAsset({
 //   id: 'brick', 
@@ -41,9 +41,9 @@ const core = new BurnerCore({
   gateways: [
     new FuelGateway({ forceFuelNetwork: 'unspecified' }),
     new InfuraGateway(process.env.REACT_APP_INFURA_KEY),
-    new XDaiGateway(),
+    // new XDaiGateway(),
   ],
-  assets: [moon, /*brick,*/ xmoon],
+  assets: [moon, /*brick, xmoon*/],
 });
 
 const BurnerWallet = () =>
@@ -53,7 +53,7 @@ const BurnerWallet = () =>
     plugins={[
       new RedditPlugin(),
       new Exchange([new FuelPair('moon', 'brick')]),
-      new WalletConnectPlugin({ defaultChainId: '100' }),
+      new WalletConnectPlugin({ defaultChainId: '5' }),
     ]}
   />
 

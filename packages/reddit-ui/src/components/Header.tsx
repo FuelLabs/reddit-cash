@@ -58,6 +58,7 @@ const UserButton = styled.button`
   height: 20px;
   width: 20px;
   border-radius: 20px;
+  z-index: 1200
 `;
 
 interface HeaderProps {
@@ -74,7 +75,7 @@ const Header: React.FC<HeaderProps> = ({ title }) => {
 
       <UserButton onClick={() => setOpen(true)} />
 
-      <SearchBar placeholder="search" />
+      <SearchBar placeholder="search" readOnly />
 
       <Coin />
     </HeaderElement>

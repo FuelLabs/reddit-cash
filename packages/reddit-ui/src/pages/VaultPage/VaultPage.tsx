@@ -5,6 +5,7 @@ import { Asset, AccountBalanceData, PluginElementContext } from '@burner-wallet/
 import styled from 'styled-components';
 
 import HistoryList from '../../components/HistoryList';
+import send from '../../../images/send.svg';
 
 
 const ViewAllButton = styled(Link)`
@@ -30,9 +31,10 @@ const Header = styled.div`
 `;
 const Close = styled(Link)`
   background: white;
-  font-size: 18px;
+  font-size: 36px;
   color: black;
   text-decoration: none;
+  align-self: flex-start;
 `;
 const HeaderBar = styled.div`
   display: flex;
@@ -53,9 +55,13 @@ const Spacer = styled.div`
 `;
 const SendBTN = styled(Link)`
   border-radius: 20px;
-  height: 24px;
-  width: 24px;
+  height: 36px;
+  width: 36px;
   background: #eeeeee;
+  background-image: url('${send}');
+  background-size: 60%;
+  background-position: center;
+  background-repeat: no-repeat;
 `;
 
 
@@ -84,7 +90,7 @@ const Balance = styled.div`
 const Page = styled.div`
   background: #f5f5f5;
   flex: 1;
-  margin-top: -64px;
+  margin-top: -32px;
   display: flex;
   flex-direction: column;
   z-index: 5;
@@ -104,6 +110,15 @@ const Background = styled.div`
   }
 `;
 
+const Icon = styled.div<any>`
+  height: 24px;
+  width: 24px;
+  background-image: url('${props => props.icon}');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+`;
+
 const { PluginElements, PluginButtons, AccountBalance } = DataProviders;
 
 const VaultPage: React.FC = () => {
@@ -115,7 +130,7 @@ const VaultPage: React.FC = () => {
       <Page>
 
         <Header>
-          <Close to="/">X</Close>
+          <Close to="/">×</Close>
           <HeaderBar>
             <ProfPic />
             Vault
@@ -138,6 +153,8 @@ const VaultPage: React.FC = () => {
                 <Card>
                   <Balance>
                     <div>{asset.name}</div>
+                    <div style={{ flex: '1' }} />
+                    <Icon icon={asset.icon} />
                     <div>{data && data.displayBalance}</div>
                   </Balance>
                 </Card>

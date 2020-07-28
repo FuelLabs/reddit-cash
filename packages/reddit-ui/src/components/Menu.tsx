@@ -25,7 +25,7 @@ const Menu: React.FC<MenuProps> = ({ onClick }) => {
         <ListItemText primary="Home" />
       </ListItem>
 
-      <ListItem button>
+      <ListItem button disabled>
         <ListItemIcon/>
         <ListItemText primary="My Profile" />
       </ListItem>
