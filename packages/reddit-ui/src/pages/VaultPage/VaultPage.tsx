@@ -132,7 +132,6 @@ const VaultPage: React.FC = () => {
         <Header>
           <Close to="/">×</Close>
           <HeaderBar>
-            <ProfPic />
             Vault
             <Spacer />
             <SendBTN to="/send" />

@@ -30,6 +30,9 @@ const HeaderElement = styled.header`
 const SearchBar = styled.input`
   flex: 1;
   border: none;
+  background: #eeeeee;
+  padding: 8px;
+  border-radius: 4px;
 `;
 
 const Title = styled.h1`
@@ -55,10 +58,36 @@ const HeaderAccount = styled.div`
 `;
 
 const UserButton = styled.button`
-  height: 20px;
-  width: 20px;
+  height: 30px;
+  width: 30px;
   border-radius: 20px;
-  z-index: 1200
+  z-index: 1200;
+  border: none;
+  outline: none;
+  overflow: hidden;
+  margin-right: 4px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  align-items: center;
+
+  &:before, &:after {
+    content: '';
+    display: block;
+    background: white;
+    border-radius: 100px;
+  }
+  &:before {
+    height: 12px;
+    width: 12px;
+    margin: 8px 0 2px;
+  }
+  &:after {
+    height: 24px;
+    width: 26px;
+    margin-bottom: -24px;
+  }
 `;
 
 interface HeaderProps {
@@ -76,8 +105,6 @@ const Header: React.FC<HeaderProps> = ({ title }) => {
       <UserButton onClick={() => setOpen(true)} />
 
       <SearchBar placeholder="search" readOnly />
-
-      <Coin />
     </HeaderElement>
   );
 };
