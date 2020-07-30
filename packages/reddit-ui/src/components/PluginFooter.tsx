@@ -16,7 +16,7 @@ const Footer = styled.div`
   }
 `;
 
-const PluginFooter = (props) => {
+const PluginFooter = () => {
   return (
     <Footer>
       <PluginElements position='home-middle' />    

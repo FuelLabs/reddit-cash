@@ -66,11 +66,11 @@ const HomePage: React.FC<BurnerContext> = ({ defaultAccount, actions, pluginData
       <AccountBalance
         asset="moon"
         account={defaultAccount}
-        render={(data: AccountBalanceData | null) => data && (data.balance === '0' ? (
+        render={(data: any | null) => data && (data.balance === '0' ? (
           <ClaimCard account={defaultAccount} asset={data.asset} />
         ) : (
           <VaultButton asset={data.asset} balance={data.displayBalance} />
-        )}
+        ))}
       />
 
       <PokemonBanner />
