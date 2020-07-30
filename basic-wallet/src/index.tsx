@@ -1,16 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import BurnerCore from '@burner-wallet/core';
-import { InjectedSigner, LocalSigner } from '@burner-wallet/core/signers';
-import { InfuraGateway, XDaiGateway } from '@burner-wallet/core/gateways';
+import { /*InjectedSigner,*/ LocalSigner } from '@burner-wallet/core/signers';
+import { InfuraGateway/*, XDaiGateway*/ } from '@burner-wallet/core/gateways';
 import Exchange from '@burner-wallet/exchange';
 import RedditUI from 'reddit-ui';
-import { ERC20Asset } from '@burner-wallet/assets';
+// import { ERC20Asset } from '@burner-wallet/assets';
 import { FuelGateway, FuelAsset, FuelPair } from 'fuel-burner-plugin';
 import RedditPlugin from 'reddit-plugin';
 import WalletConnectPlugin from '@burner-wallet/wallet-connect-plugin';
-import redditLogo from './reddit-alien.svg';
-import brickIcon from './brick-fuel-trans.png';
+// import redditLogo from './reddit-alien.svg';
+// import brickIcon from './brick-fuel-trans.png';
 import moonIcon from './moon-fuel-trans.png';
 
 const moon = new FuelAsset({
