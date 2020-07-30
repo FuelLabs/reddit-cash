@@ -5,6 +5,7 @@ import { useBurner } from '@burner-wallet/ui-core';
 import { SCAN_QR_DATAURI } from '../lib';
 import { BurnerTheme } from '../Template';
 import Drawer from './Drawer';
+import qr from '../../images/qr.png';
 
 const styled = (_styled as ThemedStyledInterface<BurnerTheme>);
 
@@ -90,6 +91,16 @@ const UserButton = styled.button`
   }
 `;
 
+const QRButton = styled.button`
+  background: url('${qr}');
+  background-size: contain;
+  background-repeat: no-repeat;
+  border: solid 1px #ccc;
+  height: 32px;
+  width: 32px;
+  margin-left: 8px;
+`;
+
 interface HeaderProps {
   title?: string;
 }
@@ -105,6 +116,8 @@ const Header: React.FC<HeaderProps> = ({ title }) => {
       <UserButton onClick={() => setOpen(true)} />
 
       <SearchBar placeholder="search" readOnly />
+
+      <QRButton onClick={actions.openDefaultQRScanner} />
     </HeaderElement>
   );
 };
