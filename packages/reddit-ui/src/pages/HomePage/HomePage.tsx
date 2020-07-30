@@ -8,6 +8,8 @@ import HistoryList from '../../components/HistoryList';
 import BottomActions from './BottomActions';
 import Post from './Post';
 import ClaimCard from './ClaimCard';
+import VaultButton from './VaultButton';
+import PokemonBanner from './PokemonBanner';
 
 import pricePump from '../../../images/price-pump.gif';
 import vitalik from '../../../images/vitalik.jpg';
@@ -64,11 +66,14 @@ const HomePage: React.FC<BurnerContext> = ({ defaultAccount, actions, pluginData
       <AccountBalance
         asset="moon"
         account={defaultAccount}
-        render={(data: AccountBalanceData | null) => data && data.balance === '0' && (
+        render={(data: AccountBalanceData | null) => data && (data.balance === '0' ? (
           <ClaimCard account={defaultAccount} asset={data.asset} />
+        ) : (
+          <VaultButton asset={data.asset} balance={data.displayBalance} />
         )}
       />
 
+      <PokemonBanner />
 
       <Post user="eth2moon" time="1h" img={pricePump} upvotes={50} address="0x">
         ETH price reaches $2,000!
