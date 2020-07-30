@@ -6,6 +6,7 @@ import Drawer from './components/Drawer';
 import Header from './components/Header';
 import Loading from './components/Loading';
 import Scanner from './components/Scanner';
+import PluginFooter from './components/PluginFooter';
 import Template from './Template';
 import options from './options';
 
@@ -59,6 +60,7 @@ export default class RedditUI extends BurnerUICore {
         <Loading />
         <Header title={this.props.title} />
         {this.router()}
+        <PluginFooter />
       </Template>
     );
   }

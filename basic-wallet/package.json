@@ -6,7 +6,7 @@
     "@burner-wallet/assets": "^1.0.0",
     "@burner-wallet/core": "^1.1.11",
     "@burner-wallet/exchange": "^1.0.0",
-    "@burner-wallet/wallet-connect-plugin": "^0.0.5",
+    "@burner-wallet/wallet-connect-plugin": "^0.0.6",
     "@types/node": "12.0.4",
     "@types/react": "*",
     "@types/react-dom": "16.8.4",

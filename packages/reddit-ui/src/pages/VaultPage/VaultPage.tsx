@@ -161,8 +161,6 @@ const VaultPage: React.FC = () => {
             />
           ))}
 
-          <PluginElements position='home-middle' />
-
           <Heading>Latest Transactions</Heading>
 
           <Card>

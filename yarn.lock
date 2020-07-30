@@ -1258,10 +1258,10 @@
     react-i18next "^11.2.7"
     react-router-dom "^5.0.1"
 
-"@burner-wallet/wallet-connect-plugin@^0.0.5":
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/@burner-wallet/wallet-connect-plugin/-/wallet-connect-plugin-0.0.5.tgz#abcdce6c2d4d7b5e555b9fa2e832255607ee5728"
-  integrity sha512-ne+ooPIj7ptXhpAQEX8q/xa2LBiuulbKpJzjh9j9gDzwu9aPuCIWUTbpucNTHlD5s1WA2s2etex8FYt4c4Uc+Q==
+"@burner-wallet/wallet-connect-plugin@^0.0.6":
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/@burner-wallet/wallet-connect-plugin/-/wallet-connect-plugin-0.0.6.tgz#2bf3dcf448f706567e981934bd395a70c5352dc1"
+  integrity sha512-memAZG6JFvn37tdz8sdyJOnxi3EYtyDDvjBJXAbm6MOfMJ/qk3Cr6snETKLjiYEqbq0JtGTUCWdYRHzBipocbg==
   dependencies:
     "@burner-wallet/types" "^1.0.0"
     "@types/react" "*"
